@@ -4,18 +4,14 @@ AI tools were used during development for guidance, debugging, and design sugges
 
 ## Prompts Used
 
-### 1. Responsive Design
+### 1. Local Storage
 
-"How can I make my HTML/CSS landing page responsive for desktop and mobile?"
+"How to add Local Storage"
 
-### 2. Mobile Navigation
+### 2. Chart
 
-"How can I implement a hamburger menu for the mobile navbar using JavaScript?"
+"How can I add chart"
 
-### 3. Dark Mode
+### 3. Easy Writing
 
-"How can I add a dark mode toggle using JavaScript and CSS?"
-
-### 4. Glassmorphism
-
-"How to apply Glassmorphism effect to the website."
+"How to wright java script code in a good manner?"

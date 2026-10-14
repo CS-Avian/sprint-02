@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash-Flow</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="app-shell">
+        <header class="topbar">
+            <span class="brand">
+                <span class="brand-mark">C</span>
+                <span>Cash-Flow</span>
+            </span>
+            <span class="topbar-note">PERSONAL FINANCE</span>
+        </header>
+
+        <main>
+            <section class="page-heading">
+                <div>
+                    <p class="eyebrow">YOUR MONEY, IN FOCUS</p>
+                    <h1>Salary & expense tracker</h1>
+                    <p class="subtitle">Keep track of what comes in, what goes out, and what remains.</p>
+                </div>
+                <div class="date-pill" id="todayLabel">Your overview</div>
+            </section>
+
+            <section class="summary-grid">
+                <article class="summary-card salary-card">
+                    <p class="card-label">Total salary</p>
+                    <p class="summary-value" id="salaryDisplay">₹0.00</p>
+                    <p class="card-foot">Your monthly income</p>
+                </article>
+                <article class="summary-card expense-card">
+                    <p class="card-label">Total expenses</p>
+                    <p class="summary-value" id="expenseDisplay">₹0.00</p>
+                    <p class="card-foot">Money spent so far</p>
+                </article>
+                <article class="summary-card balance-card">
+                    <p class="card-label">Remaining balance</p>
+                    <p class="summary-value" id="balanceDisplay">₹0.00</p>
+                    <p class="card-foot">Salary minus expenses</p>
+                </article>
+            </section>
+
+            <section class="content-grid">
+                <div class="left-column">
+                    <section class="panel">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">STEP 01</p>
+                                <h2>Set your salary</h2>
+                            </div>
+                        </div>
+                        <form id="salaryForm" novalidate>
+                            <label for="salaryInput">Total salary (₹)</label>
+                            <input id="salaryInput" name="salary" type="number" min="0" step="0.01"
+                                   placeholder="e.g. 30000" required>
+                            <button class="button button-primary" type="submit">Save salary</button>
+                            <p class="form-message" id="salaryMessage" role="alert"></p>
+                        </form>
+                    </section>
+
+                    <section class="panel">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">STEP 02</p>
+                                <h2>Add an expense</h2>
+                            </div>
+                        </div>
+                        <form id="expenseForm" novalidate>
+                            <label for="expenseName">Expense name</label>
+                            <input id="expenseName" name="expenseName" type="text"
+                                   maxlength="80" placeholder="e.g. Groceries" required>
+
+                            <label for="expenseAmount">Amount (₹)</label>
+                            <input id="expenseAmount" name="expenseAmount" type="number"
+                                   min="0" step="0.01" placeholder="e.g. 1250" required>
+
+                            <button class="button button-primary" type="submit">Add expense</button>
+                            <p class="form-message" id="expenseMessage" role="alert"></p>
+                        </form>
+                    </section>
+                </div>
+
+                <div class="right-column">
+                    <section class="panel chart-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">AT A GLANCE</p>
+                                <h2>Money breakdown</h2>
+                            </div>
+                        </div>
+                        <div class="chart-wrap">
+                            <canvas id="expenseChart" role="img"></canvas>
+                        </div>
+                        <div class="chart-legend">
+                            <span><i class="legend-dot balance-dot"></i>Remaining balance</span>
+                            <span><i class="legend-dot expense-dot"></i>Total expenses</span>
+                        </div>
+                        <p class="chart-note" id="chartNote">Add a salary and expenses to see your breakdown.</p>
+                    </section>
+
+                    <section class="panel expenses-panel">
+                        <div class="panel-heading expenses-heading">
+                            <div>
+                                <p class="eyebrow">TRANSACTION LIST</p>
+                                <h2>Recent expenses</h2>
+                            </div>
+                            <span class="count-badge" id="expenseCount">0 items</span>
+                        </div>
+                        <div id="emptyState" class="empty-state">
+                            <span class="empty-mark">—</span>
+                            <p>No expenses yet</p>
+                            <span>Your added expenses will appear here.</span>
+                        </div>
+                        <ul id="expenseList" class="expense-list" aria-live="polite"></ul>
+                    </section>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <span>Cash-Flow</span>
+            <span>Your finances, made clearer.</span>
+        </footer>
+    </div>
+</body>
+</html>
